@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="print_report_update.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="http://openlayers.org/en/v3.17.1/css/ol.css" type="text/css">
+    <script src="http://openlayers.org/en/v3.17.1/build/ol.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('#container').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Simulated monthly runoff in the Gully Creek watershed under existing condition',
+                x: -20, //center
+                style: {
+                    fontWeight: 'bold',
+                    fontSize: "10px"
+                }
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: [
+                    'Jan',
+                    'Feb',
+                    'Mar',
+                    'Apr',
+                    'May',
+                    'Jun',
+                    'Jul',
+                    'Aug',
+                    'Sep',
+                    'Oct',
+                    'Nov',
+                    'Dec'
+                ],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Runoff (mm)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0,
+                itemStyle: {
+                    font: '7pt Trebuchet MS, Verdana, sans-serif',
+                    color: '#A0A0A0'
+                },
+            },
+            series: [{
+                name: 'Existing',
+                data: [65.9, 81.5, 96.4, 69.2, 45.0, 30.0, 25.6, 28.5, 36.4, 44.1, 65.6, 84.4]
+
+            }, ]
+        });
+    });
+    $(function() {
+        $('#resultcontainer').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Simulated monthly runoff in the Gully Creek watershed with BMP implememtation',
+                x: -20, //center
+                style: {
+                    fontWeight: 'bold',
+                    fontSize: "10px"
+                }
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: [
+                    'Jan',
+                    'Feb',
+                    'Mar',
+                    'Apr',
+                    'May',
+                    'Jun',
+                    'Jul',
+                    'Aug',
+                    'Sep',
+                    'Oct',
+                    'Nov',
+                    'Dec'
+                ],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Runoff (mm)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0,
+                itemStyle: {
+                    font: '7pt Trebuchet MS, Verdana, sans-serif',
+                    color: '#A0A0A0'
+                },
+            },
+            series: [{
+                name: 'Existing',
+                data: [65.9, 81.5, 96.4, 69.2, 45.0, 30.0, 25.6, 28.5, 36.4, 44.1, 65.6, 84.4]
+            }, {
+                name: 'WithBMP',
+                data: [55.9, 71.5, 86.4, 59.2, 40.0, 27.0, 20.6, 20.5, 26.4, 38.1, 55.6, 74.4]
+            }, ]
+        });
+    });
+
+    $(function() {
+        $('#optimizecontainer').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Simulated monthly runoff in the Gully Creek watershed with optimized BMP implememtation',
+                x: -20, //center
+                style: {
+                    fontWeight: 'bold',
+                    fontSize: "10px"
+                }
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: [
+                    'Jan',
+                    'Feb',
+                    'Mar',
+                    'Apr',
+                    'May',
+                    'Jun',
+                    'Jul',
+                    'Aug',
+                    'Sep',
+                    'Oct',
+                    'Nov',
+                    'Dec'
+                ],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Runoff (mm)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0,
+                itemStyle: {
+                    font: '7pt Trebuchet MS, Verdana, sans-serif',
+                    color: '#A0A0A0'
+                },
+            },
+            series: [{
+                name: 'Existing',
+                data: [65.9, 81.5, 96.4, 69.2, 45.0, 30.0, 25.6, 28.5, 36.4, 44.1, 65.6, 84.4]
+            }, {
+                name: 'WithBMP',
+                data: [55.9, 71.5, 86.4, 59.2, 40.0, 27.0, 20.6, 20.5, 26.4, 38.1, 55.6, 74.4]
+            }, {
+                name: 'OptimizedBMP',
+                data: [57.9, 74.5, 88.4, 60.2, 42.0, 27.0, 21.6, 22.5, 28.4, 40.1, 57.6, 76.4]
+            }, ]
+        });
+    });
+    // $(function() {
+    //     $('#container').highcharts({
+    //         title: {
+    //             text: 'Compared to GullyCreek_Aug_18',
+    //             x: -20, //center
+    //             style: {
+    //                 fontWeight: 'bold',
+    //                 fontSize: "10px"
+    //             }
+    //         },
+    //         subtitle: {
+    //             text: '',
+    //             x: -20
+    //         },
+    //         xAxis: {
+    //             categories: ['Field 1', 'Field 16', 'Field 40']
+    //         },
+    //         yAxis: {
+    //             title: {
+    //                 text: 'Percentage (%)'
+    //             },
+    //             plotLines: [{
+    //                 value: 0,
+    //                 width: 1,
+    //                 color: '#808080'
+    //             }]
+    //         },
+    //         credits: {
+    //             enabled: false
+    //         },
+    //         tooltip: {
+    //             valueSuffix: '°C'
+    //         },
+    //         legend: {
+    //             layout: 'vertical',
+    //             align: 'right',
+    //             verticalAlign: 'middle',
+    //             borderWidth: 0,
+    //             itemStyle: {
+    //                 font: '7pt Trebuchet MS, Verdana, sans-serif',
+    //                 color: '#A0A0A0'
+    //             },
+    //         },
+    //         series: [{
+    //             name: 'Flow',
+    //             data: [7.0, 6.9, 9.5]
+    //         }, {
+    //             name: 'Sediment',
+    //             data: [-0.2, 0.8, 5.7]
+    //         }, {
+    //             name: 'Total N',
+    //             data: [-0.9, 0.6, 3.5]
+    //         }, {
+    //             name: 'Total P',
+    //             data: [3.9, 4.2, 5.7]
+    //         }]
+    //     });
+    // });
+    </script>
+</head>
+
+<body>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <section>
+        <div id="coverpage" class="container-fluid" style="text-align:center">
+            <h2></br></br></br></br></br></br>SWAT Modelling of Agricultural BMPs in the Gully Creek Watershed</h2>
+            <h5></br></br>Watershed Evaluation Group, University of Guelph</h5>
+            <h5></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>August 20, 2016</h5>
+            <h6></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br><u>A Research Report Submitted to Ausable Bayfield Conservation Authority and Ontario Ministry of Agriculture, Food, and Rural Affairs</u> </h6>
+        </div>
+    </section>
+    <main>
+        <page id="introduction" class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h3>Introduction</h3>
+                    <p>
+                        The Gully Creek watershed in the service area of the Ausable Bayfield Conservation Authority (ABCA) is a representative lakeshore watershed of the Lake Huron Basin with undulating landscape and dominated agricultural activities. Evident sediment and nutrient transport from these lakeshore watersheds has become one of the major threats to near shore water quality. With growing concerns about the adverse environmental effects of agriculture, farmers, conservation authorities and governments have worked together to implement best management practices (BMPs) such as conservation tillage, cover crop, nutrient management, and Water and Sediment Control Basins (WASCOBs) to mitigate these negative effects. However, for decision making purpose, it is necessary to evaluate the effectiveness of these BMPs in terms of sediment and nutrient reductions.
+                    </p>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2" id="map"></div>
+                    </div>
+                    <div style="text-align:center">
+                        <small>Study area: Gully Creek Watershed</small>
+                    </div>
+                    <br>
+                    <p>
+                        Hence, the purpose of this study is to adapt the Soil and Water Assessment Tool (SWAT) to examine water quality benefits from BMP implementation in the Gully Creek watershed. Specifically, the three interrelated objectives include: 1) Adapt and set up the SWAT for the Gully Creek watershed; 2) Calibrate and validate the SWAT to fit into the Gully Creek watershed conditions; 3) Apply the SWAT to examine water quality benefits of various BMP scenarios in the Gully Creek watershed.
+                    </p>
+                </div>
+            </div>
+        </page>
+        <page id="model" class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h3>Model Setup</h3>
+                    <p>
+                        The SWAT is setup based on LiDAR DEM, landuse, soil, hydrography, monitoring locations, WASCoB locations, climate data (precipitation and temperature), and crop management information (planting, harvest, tillage, and fertilizer) obtained from OMAFRA, Environment Canada, and ABCA. BMP characterization included conservation tillage, nutrient management, cover crop, and newly developed WASCoB module. The SWAT was calibrated and validated based on flow and water quality data at in-stream and field-edge stations. Both monthly and annually prediction were supported by the SWAT model. Upon the comparison between the simulated and observed data, a reasonable model performance can be achieved.
+                    </p>
+                    <p>
+                        The table below is to summarize the primary aspects for seting up the model:
+                    </p>
+                    <table class="table table-hover table-condensed table-bordered" style="margin-top:20px">
+                        <!--                        <thead>
+                            <tr>
+                                <th>Field #</th>
+                                <th>CC</th>
+                                <th>NM</th>
+                                <th>WasCobs</th>
+                                <th>CT</th>
+                            </tr>
+                        </thead> -->
+                        <tbody>
+                            <tr>
+                                <th scope="row">Hydrologic processes</th>
+                                <td class="success">Infiltration</td>
+                                <td class="success">Runoff</td>
+                                <td class="success">Evapotranspiration</td>
+                                <td class="success">Snow melt</td>
+                                <td class="success">Routing</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">BMP characterization</th>
+                                <td class="success">Cover crop</td>
+                                <td class="success">Conservation tillage</td>
+                                <td class="success">Nutrient management</td>
+                                <td class="success">WasCobs</td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Data requirement</th>
+                                <td class="success">GIS data</td>
+                                <td class="success">Climate data</td>
+                                <td class="success">Flow and water quality data</td>
+                                <td class="success">Land management data</td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Time interval</th>
+                                <td class="success">Monthly</td>
+                                <td class="success">Yearly</td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </page>
+        <page id="baseScenario" class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h3>Base Scenario</h3>
+                    <p>
+                        The purpose of SWAT modelling is to evaluate the water quality effects of BMP scenarios. In the evaluation, a base scenario can be defined to characterize various conditions before defining BMP scenarios. This base scenario will be used to evaluate the effect of BMP application.
+                    </p>
+                    <p>
+                        In this study, the base scenarios represents existing Gully Creek watershed conditions including both WASCoBs and land management practices. According the this existing condition, the runoff is simulated as the below chart.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3" style="height:250px">
+                    <div id="container" style="min-width: 310px; height: 100%; margin: 0 auto"></div>
+                </div>
+            </div>
+        </page>
+        <page id="resultDisplay" class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h3>Scenario result display</h3>
+                    <p>
+                        BMP scenario is defined through assigning certain BMPs to the fields of interest. In this scenario, the assignment of BMPs to fields are illustrated as below:
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <table class="table table-hover table-condensed" style="margin-top:20px">
+                        <thead>
+                            <tr>
+                                <th>Field #</th>
+                                <th>CC</th>
+                                <th>NM</th>
+                                <th>WasCobs</th>
+                                <th>CT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">7</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">8</th>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="danger"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">9</th>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">11</th>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">12</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="danger"></td>
+                                <td class="danger"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">13</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">14</th>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">15</th>
+                                <td class="danger"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="success	"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">16</th>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">17</th>
+                                <td class="danger"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">18</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">19</th>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">20</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <p style="text-align:center">
+                        After the application of selected BMPs, the runoff over 12 monthes is depicted as the below chart and a comparison is made to the simulated result under existing scenario.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3" style="height:250px">
+                    <div id="resultcontainer" style="min-width: 310px; height: 100%; margin: 0 auto"></div>
+                </div>
+            </div>
+        </page>
+        <page id="optimizationModel" class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h3>Integrated analysis</h3>
+                    <p>
+                        Integrated analysis aims to provide suggestions for BMP implementation upon economic limitations or pullution-deduction requriement. The below table advices the BMP implementation strategy under the preset condition that the maximum expenditure for BMP is no larger that 20000 dollars.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <table class="table table-hover table-condensed" style="margin-top:20px">
+                        <thead>
+                            <tr>
+                                <th>Field #</th>
+                                <th>CC</th>
+                                <th>NM</th>
+                                <th>WasCobs</th>
+                                <th>CT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">7</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">8</th>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="danger"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">9</th>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">11</th>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">12</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="danger"></td>
+                                <td class="danger"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">13</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">14</th>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">15</th>
+                                <td class="danger"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="success	"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">16</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">17</th>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">18</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">19</th>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">20</th>
+                                <td class="success"></td>
+                                <td class="danger"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <p>
+                        The simulated monthly runoff can be seen from the below table. According to the result, while it meets the economic limitation, it still maintain almost the same level runoff reduction as the user created scenario.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3" style="height:250px">
+                    <div id="optimizecontainer" style="min-width: 310px; height: 100%; margin: 0 auto"></div>
+                </div>
+            </div>
+        </page>
+        <page id="conclusion" class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h3>Conclusion</h3>
+                    <p>
+                        In sum, this report illutrates the effect of BMP implementation and offers advices for BMP implementation. According to the simulated result, runoff over 12 monthes after BMP implemetation will obtain an obviouse deduction. Given the economic limitaiton expenditure, an optimized stratigy for BMP implementaiton is provided, which also obtains an noticeble reduction in runoff.
+                    </p>
+                </div>
+            </div>
+        </page>
+    </main>
+    <script>
+    var map = new ol.Map({
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            })
+        ],
+        target: 'map',
+        controls: ol.control.defaults({
+            attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
+                collapsible: false
+            })
+        }),
+        view: new ol.View({
+            center: [0, 0],
+            zoom: 2
+        })
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="print.css">
+    <link rel="stylesheet" href="http://openlayers.org/en/v3.17.1/css/ol.css" type="text/css">
+    <script src="http://openlayers.org/en/v3.17.1/build/ol.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('#container').highcharts({
+            title: {
+                text: 'Compared to GullyCreek_Aug_18',
+                x: -20, //center
+                style: {
+                    fontWeight: 'bold',
+                    fontSize: "10px"
+                }
+            },
+            subtitle: {
+                text: '',
+                x: -20
+            },
+            xAxis: {
+                categories: ['Field 1', 'Field 16', 'Field 40']
+            },
+            yAxis: {
+                title: {
+                    text: 'Percentage (%)'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            credits: {
+                enabled: false
+            },
+            tooltip: {
+                valueSuffix: '°C'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0,
+                itemStyle: {
+                    font: '7pt Trebuchet MS, Verdana, sans-serif',
+                    color: '#A0A0A0'
+                },
+            },
+            series: [{
+                name: 'Flow',
+                data: [7.0, 6.9, 9.5]
+            }, {
+                name: 'Sediment',
+                data: [-0.2, 0.8, 5.7]
+            }, {
+                name: 'Total N',
+                data: [-0.9, 0.6, 3.5]
+            }, {
+                name: 'Total P',
+                data: [3.9, 4.2, 5.7]
+            }]
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <page size="A4" layout="portrait">
+        <div class="container-fluid">
+            <h2>Report</h2>
+            <h4> GullyCreek_Aug_20 by Kun</h4>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="map col-md-8">
+                    <div id="map"></div>
+                </div>
+                <div class="map col-md-4" style="padding-top:30px">
+                    <table class="table table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Field #</th>
+                                <th>CC</th>
+                                <th>NM</th>
+                                <th>WasCobs</th>
+                                <th>CT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td class="success"></td>
+                                <td class="warning"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">16</th>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="warning"></td>
+                                <td class="warning"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">40</th>
+                                <td class="success"></td>
+                                <td class="warning"></td>
+                                <td class="success"></td>
+                                <td class="warning"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Field #</th>
+                                <th>Flow</th>
+                                <th>Sediment</th>
+                                <th>Total N</th>
+                                <th>Total P</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td class="success">###</td>
+                                <td>###</td>
+                                <td>###</td>
+                                <td>###</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">16</th>
+                                <td>###</td>
+                                <td>###</td>
+                                <td class="danger">###</td>
+                                <td>###</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">40</th>
+                                <td>###</td>
+                                <td>###</td>
+                                <td>###</td>
+                                <td class="warning">###</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Outlet #</th>
+                                <th>Flow</th>
+                                <th>Sediment</th>
+                                <th>Total N</th>
+                                <th>Total P</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Basin</th>
+                                <td>###</td>
+                                <td class="success">###</td>
+                                <td>###</td>
+                                <td class="warning">###</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8" style="height:250px">
+                    <div id="container" style="min-width: 310px; height: 100%; margin: 0 auto"></div>
+                </div>
+                <div class="col-sm-4" style="padding-top:50px;">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control input-sm" aria-label="Amount (to the nearest dollar)">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">P</span>
+                                <input type="text" class="form-control input-sm" aria-label="Amount (to the nearest dollar)">
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-hover table-condensed" style="margin-top:20px">
+                        <thead>
+                            <tr>
+                                <th>Field #</th>
+                                <th>CC</th>
+                                <th>NM</th>
+                                <th>WasCobs</th>
+                                <th>CT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td class="success"></td>
+                                <td></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">16</th>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="success"></td>
+                                <td class="warning"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">40</th>
+                                <td></td>
+                                <td></td>
+                                <td class="success"></td>
+                                <td class="warning"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </page>
+    <script>
+    var map = new ol.Map({
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            })
+        ],
+        target: 'map',
+        controls: ol.control.defaults({
+            attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
+                collapsible: false
+            })
+        }),
+        view: new ol.View({
+            center: [0, 0],
+            zoom: 2
+        })
+    });
+    </script>
+</body>
+
+</html>
